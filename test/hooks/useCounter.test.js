@@ -44,9 +44,10 @@ describe("Pruebas en el use counter", () => {
 
   test("debe de resetear el counter", () => {
     const { result } = renderHook(() => useCounter(0));
-    const { reset } = result.current;
+    const { decrement, reset } = result.current;
 
     act(() => {
+      decrement();
       reset();
     });
     expect(result.current.counter).toBe(0);
